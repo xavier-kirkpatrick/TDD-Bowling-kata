@@ -12,3 +12,13 @@ test('scores a gutterball frame', () => {
 
   expect(actual).toBe(expected)
 })
+
+test('', () => {
+  // Arrange
+  const frame = [4, 5]
+  // Act
+  const actual = score.scoreFrame(frame)
+  const expected = 9
+  // Assert
+  expect(actual).toBe(expected)
+})
