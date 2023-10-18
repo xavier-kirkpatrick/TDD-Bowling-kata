@@ -1,23 +1,31 @@
 export { scoreFrame }
 
 function scoreFrame(frame, nextFrame, thirdFrame) {
-  const normalScore = frame.reduce((total, ball) => total + ball, 0)
+  const addNormalFrame = frame.reduce((total, ball) => total + ball, 0)
+
+  // Strike on the last frame
+  if (frame.length === 3) {
+    return frame[0] + frame[1] + frame[2]
+  }
 
   // Double strike
-  if (frame[0] === 10 && nextFrame[0] === 10) {
-    return normalScore + nextFrame[0] + thirdFrame[0]
+  else if (frame[0] === 10 && nextFrame[0] === 10) {
+    return addNormalFrame + nextFrame[0] + thirdFrame[0]
   }
 
   // Single Strike
-  if (frame[0] === 10) {
-    return normalScore + nextFrame[0] + nextFrame[1]
+  else if (frame[0] === 10) {
+    return addNormalFrame + nextFrame[0] + nextFrame[1]
   }
 
   //Spare
-  if (frame[0] + frame[1] === 10) {
-    return normalScore + nextFrame[0]
+  else if (frame[0] + frame[1] === 10) {
+    return addNormalFrame + nextFrame[0]
   }
 
   // Normal
-  return normalScore
+  else {
+    return addNormalFrame
+  }
 }
+// scoreFrame()
