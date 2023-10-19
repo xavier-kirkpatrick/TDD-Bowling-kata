@@ -8,7 +8,7 @@ test('Try out first test, which always pass', () => {
 test('scores a gutterball frame', () => {
   const frame = [0, 0]
   const expected = 0
-  const actual = score.scoreFrame(frame)
+  const actual = score.letsBowl(frame)
 
   expect(actual).toBe(expected)
 })
@@ -17,7 +17,7 @@ test('normal frame score', () => {
   // Arrange
   const frame = [4, 5]
   // Act
-  const actual = score.scoreFrame(frame)
+  const actual = score.letsBowl(frame)
   const expected = 9
   // Assert
   expect(actual).toBe(expected)
@@ -29,7 +29,7 @@ test('frame with spares', () => {
   const nextFrame = [3, 3]
   // Act
   const expected = 13
-  const actual = score.scoreFrame(frame, nextFrame)
+  const actual = score.letsBowl(frame, nextFrame)
   // Assert
   expect(actual).toBe(expected)
 })
@@ -40,7 +40,7 @@ test('scores a single strike frame', () => {
   const nextFrame = [2, 0]
   // Act
   const expected = 12
-  const actual = score.scoreFrame(frame, nextFrame)
+  const actual = score.letsBowl(frame, nextFrame)
   // Assert
   expect(actual).toBe(expected)
 })
@@ -52,7 +52,7 @@ test('scores a double strike frame', () => {
   const thirdFrame = [2, 7]
   // Act
   const expected = 22
-  const actual = score.scoreFrame(frame, nextFrame, thirdFrame)
+  const actual = score.letsBowl(frame, nextFrame, thirdFrame)
   // Assert
   expect(actual).toBe(expected)
 })
@@ -63,7 +63,7 @@ test('strike on the last frame', () => {
 
   // Act
   const expected = 19
-  const actual = score.scoreFrame(frame)
+  const actual = score.letsBowl(frame)
   // Assert
   expect(actual).toBe(expected)
 })
